@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Razones Para Mi Flaquita 💕</title>
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+text-align:center;
+overflow-x:hidden;
+}
+
+.container{
+padding:30px 15px 70px;
+}
+
+h1{
+color:#fff;
+font-size:22px;
+margin-bottom:20px;
+animation:fadeInDown 1s ease;
+}
+
+button{
+width:90%;
+max-width:320px;
+padding:15px;
+font-size:16px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+margin:15px auto;
+display:block;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+transition:all 0.3s ease;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+button:active{
+transform:scale(0.95);
+}
+
+.card{
+background:white;
+margin:20px auto;
+padding:20px;
+border-radius:20px;
+width:95%;
+max-width:500px;
+display:none;
+opacity:0;
+transform:translateY(20px);
+transition:all 0.6s ease;
+}
+
+.card.mostrar{
+display:block;
+opacity:1;
+transform:translateY(0);
+}
+
+ol{
+text-align:left;
+padding-left:20px;
+font-size:14px;
+line-height:1.7;
+}
+
+.mensaje-oculto{
+margin-top:35px;
+color:#fff;
+font-size:16px;
+cursor:pointer;
+text-decoration:underline;
+transition:0.3s;
+}
+
+.mensaje-oculto:hover{
+opacity:0.8;
+}
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0.8);
+background:white;
+padding:20px;
+border-radius:20px;
+width:90%;
+max-width:350px;
+box-shadow:0 15px 35px rgba(0,0,0,0.3);
+opacity:0;
+transition:all 0.4s ease;
+z-index:1000;
+}
+
+.popup.mostrar{
+opacity:1;
+transform:translate(-50%,-50%) scale(1);
+}
+
+.popup p{
+font-size:14px;
+line-height:1.6;
+}
+
+@keyframes fadeInDown{
+from{opacity:0; transform:translateY(-20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:18px;
+color:#ff4d6d;
+animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0) scale(1); opacity:1;}
+100%{transform:translateY(-110vh) scale(1.6); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>100 Razones Por Las Que No Dejaría a Mi Flaquita Nicole 💕</h1>
+<button onclick="mostrar()">Ábreme mi flaquita ❤️</button>
+
+<div class="card" id="contenido">
+<ol id="lista"></ol>
+</div>
+
+<div class="mensaje-oculto" onclick="mostrarMensaje()">
+Mi amor 💌
+</div>
+</div>
+
+<div class="popup" id="popup">
+<p>
+Lamento mucho por hacerte creer que me alejaba de ti. Perdóname, mi amor.
+Eres mi vida entera y lo lamento. Te amo demasiado y eres todo para mí.
+Yo sé que ya lo hablamos, jsjsjs, pero te dejo mis 100 razones por las cuales no te dejaría,
+y me faltan más, pero la noche no es tan eterna que digamos, jsjsjsjs.
+Te amo, mi amor. Eres una gran y hermosa novia.
+Te amo, mi flaquita. ❤️
+</p>
+<button onclick="cerrarMensaje()">Cerrar ❤️</button>
+</div>
+
+<script>
+const razones = [
+"Porque tú eres la mujer que amo.",
+"Porque tú eres alguien verdaderamente especial.",
+"Porque, aunque tengas problemas, siempre piensas en mí.",
+"Porque tu corazón es más grande que cualquier dificultad.",
+"Porque eres increíble en todos los sentidos.",
+"Porque eres fuerte incluso cuando sientes que no lo eres.",
+"Porque amo tus ojos y la forma en que me miran.",
+"Porque tu mirada me da paz.",
+"Porque tu hermoso pelo me encanta.",
+"Porque amo cada una de tus pestañas.",
+"Porque adoro tus labios y tu sonrisa.",
+"Porque tu sonrisa ilumina mis días más oscuros.",
+"Porque me apoyas sin dudarlo.",
+"Porque siempre me escuchas.",
+"Porque me entiendes incluso cuando no sé cómo explicarme.",
+"Porque cuando me abrazas siento que todo está bien.",
+"Porque eres dulce conmigo.",
+"Porque eres auténtica y real.",
+"Porque no hay nadie como tú.",
+"Porque me haces feliz de una manera que nadie más puede.",
+"Porque me cuidas con amor.",
+"Porque te preocupas por mí todos los días.",
+"Porque confías en mí.",
+"Porque me aceptas tal como soy.",
+"Porque amas mis defectos.",
+"Porque me motivas a ser mejor hombre.",
+"Porque luchas por nosotros.",
+"Porque no te rindes fácilmente.",
+"Porque tu risa es mi sonido favorito.",
+"Porque tus mensajes alegran mi día.",
+"Porque tus buenos días me llenan de energía.",
+"Porque tus buenas noches me dan tranquilidad.",
+"Porque me inspiras a crecer.",
+"Porque me das fuerzas cuando me siento débil.",
+"Porque crees en mí incluso cuando yo dudo.",
+"Porque me perdonas y seguimos adelante.",
+"Porque quieres construir un futuro conmigo.",
+"Porque sueñas a mi lado.",
+"Porque me haces sentir importante.",
+"Porque me respetas siempre.",
+"Porque yo te admiro profundamente.",
+"Porque eres detallista conmigo.",
+"Porque me dedicas tu tiempo.",
+"Porque me incluyes en tu vida.",
+"Porque eres mi apoyo incondicional.",
+"Porque contigo siento paz.",
+"Porque eres mi felicidad.",
+"Porque eres mi compañera en todo.",
+"Porque eres mi mejor amiga y mi amor.",
+"Porque confío plenamente en ti.",
+"Porque me haces sentir amado de verdad.",
+"Porque amo tu forma de ser.",
+"Porque tu alma es hermosa.",
+"Porque tu corazón es puro.",
+"Porque me haces querer mejorar cada día.",
+"Porque me das seguridad.",
+"Porque eres paciente conmigo.",
+"Porque me entiendes en mis días difíciles.",
+"Porque me levantas cuando me siento caído.",
+"Porque siempre intentas mejorar por nosotros.",
+"Porque me demuestras tu amor con hechos.",
+"Porque tus abrazos son mi lugar seguro.",
+"Porque tu voz me calma.",
+"Porque contigo me siento en casa.",
+"Porque quiero crear más recuerdos contigo.",
+"Porque nuestras bromas solo las entendemos nosotros.",
+"Porque compartes tus sueños conmigo.",
+"Porque me haces sentir afortunado de tenerte.",
+"Porque llenas mi corazón de amor.",
+"Porque tu cariño es sincero.",
+"Porque eres valiente ante la vida.",
+"Porque eres sensible y eso te hace hermosa.",
+"Porque eres inteligente y fuerte.",
+"Porque tienes un alma hermosa.",
+"Porque siempre intentas estar bien para mí.",
+"Porque incluso en tus días tristes sigues brillando.",
+"Porque eres la mujer más hermosa que mis ojos han visto.",
+"Porque tu interior es aún más hermoso que tu exterior.",
+"Porque me das esperanza.",
+"Porque me das amor verdadero.",
+"Porque me das paz en medio del caos.",
+"Porque eres mi persona favorita.",
+"Porque no imagino mi vida sin ti.",
+"Porque cada día contigo vale completamente la pena.",
+"Porque me haces sentir completo.",
+"Porque te elijo hoy y siempre.",
+"Porque te amo en tus días buenos y en tus días malos.",
+"Porque quiero crecer a tu lado.",
+"Porque quiero cuidarte siempre.",
+"Porque quiero proteger tu corazón.",
+"Porque quiero verte cumplir cada uno de tus sueños.",
+"Porque quiero estar en tu futuro.",
+"Porque tú eres mi presente y mi ilusión.",
+"Porque eres mi flaquita hermosa.",
+"Porque eres la mujer con la que quiero todo.",
+"Porque mi amor por ti es real.",
+"porque para mi eres la madre de mis futuros hijos",
+"porque no hay mujer mas hermosa que tu mi amor .",
+"Porque simplemente te amo con todo mi corazón.",
+"Porque tú, mi flaquita, eres todo para mí."
+];
+
+document.getElementById("lista").innerHTML =
+razones.map(r=>`<li>${r}</li>`).join("");
+
+function mostrar(){
+const card=document.getElementById("contenido");
+card.classList.add("mostrar");
+}
+
+function mostrarMensaje(){
+document.getElementById("popup").classList.add("mostrar");
+}
+
+function cerrarMensaje(){
+document.getElementById("popup").classList.remove("mostrar");
+}
+
+function crearCorazon(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+4)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),7000);
+}
+setInterval(crearCorazon,500);
+</script>
+
+</body>
+</html>
